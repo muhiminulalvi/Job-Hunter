@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Category from "./Category/Category";
+import Jobs from "./Jobs";
+import JobDetails from "./JobDetails/JobDetails";
 
 const Home = () => {
   return (
@@ -33,6 +35,14 @@ const Home = () => {
         <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
       </div>
       <Category />
+      <div className="text-center pt-20 pb-8 font-bold">
+        <h1 className="text-4xl mb-3 text-purple-600">Featured Jobs</h1>
+        <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
+      </div>
+      <JobDetails />
+      <div className="text-center">
+      <button type="button" className="btn-primary text-center">See All Jobs</button>
+      </div>
     </div>
   );
 };
