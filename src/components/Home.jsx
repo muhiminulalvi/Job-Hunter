@@ -1,38 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import heroImg from '../assets/hero.jpg'
 
 const Home = () => {
   return (
-    <section>
-      <div className='bg-gray-200'>
-        <div className='my-container flex flex-col items-center pb-24 text-center lg:pb-56 text-gray-900'>
-          <h1 className='text-2xl w-full lg:leading-tight sm:text-4xl lg:text-6xl lg:max-w-3xl title-text'>
-            Welcome To HeroGadget
-          </h1>
-          <p className='my-6 text-xs sm:text-base md:text-lg max-w-2/3 md:max-w-xl max-w-2xl text-gray-900'>
-            Best E-commerce platform for buying high quality Smart Home
-            Appliances at extremely affordable Price.
-          </p>
-          <div className='flex flex-wrap justify-center'>
-            <Link to='/shop'>
-              <button type='button' className='btn-primary'>
-                Shop Now
-              </button>
-            </Link>
-            <Link to='/about'>
-              <button type='button' className='btn-outlined'>
-                Learn more
-              </button>
-            </Link>
-          </div>
-        </div>
+    <section className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 grid sm:grid-cols-1 md:grid-cols-2 items-center justify-center gap-4'>
+      <div className='text-start mb-4'>
+        <h1 className='text-6xl font-bold mb-4 leading-relaxed'>One Step Closer To Your  <span className='text-purple-700'>Dream Job</span></h1>
+        <p className='font-medium mb-4'>Explore thousands of job opportunities with all the information you need. Its your future. Come find it. Manage all your job application from start to finish.</p>
+        <Link to='/blog'><button className='btn-primary'>Get Started</button></Link>
       </div>
+      <div className='text-center'>
       <img
-        src={heroImg}
+        src='public\All Images\P3OLGJ1 copy 1.png'
         alt=''
-        className='w-5/6 mx-auto mb-12 -mt-12 lg:-mt-40 rounded-lg shadow-md bg-gray-500'
+        className='text-center'
       />
+      </div>
     </section>
   )
 }
