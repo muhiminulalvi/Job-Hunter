@@ -40,7 +40,7 @@ const JobDetails = () => {
               <p>{job.location}</p>
               <p>Salary: {job.salary}</p>
             </div>
-            <Link to='job/id'>
+            <Link to={`../job/${job.id}`}>
               <button
                 type="button"
                 className="rounded border border-purple-500 py-2 px-4 text-white bg-purple-600 hover:text-purple-700 hover:bg-white"
