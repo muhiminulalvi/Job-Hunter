@@ -12,36 +12,36 @@ import JobInfo from "./components/JobInfo";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-        {
-            path: '/',
-            element: <Home />,
-            loader: () => fetch('/category.json'),
-        },
-        {
-            path: 'job/:id',
-            element: <JobInfo />,
-            
-          },
-        {
-            path: '/statistics',
-            element: <Statistics />,
-        },
-        {
-            path: '/jobs',
-            element: <Jobs />,
-        },
-        {
-            path: '/blog',
-            element: <Blog />,
-        },
+      {
+        path: "/",
+        element: <Home />,
+        loader: () => fetch("/category.json"),
+      },
+      {
+        path: "job/:id",
+        element: <JobInfo />,
+        loader: ({params}) =>
+          fetch(`/jobCollection.json`),
+      },
+      {
+        path: "/statistics",
+        element: <Statistics />,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
     ],
   },
-
-])
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
