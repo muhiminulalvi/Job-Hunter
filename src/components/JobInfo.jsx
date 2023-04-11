@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToDb } from "../utilities/fakeDB";
 
 const JobInfo = () => {
   const jobs = useLoaderData();
@@ -12,7 +13,13 @@ const JobInfo = () => {
     const jobData = jobs.find((job) => job.id == id);
     setJob_Info(jobData);
   }, []);
-  console.log(job_Info);
+//   console.log(job_Info);
+
+  const handleAppliedJobs = id => {
+    console.log(id);
+    addToDb(id)
+  }
+ 
   return (
     <>
       <div className="bg-purple-100 py-20">
@@ -75,7 +82,7 @@ const JobInfo = () => {
               </div>
 
             </div>
-            <button type="button" className="w-full my-2 py-2 px-4 bg-purple-400 rounded text-white hover:text-purple-700 hover:bg-purple-100">Apply Now</button>
+            <button onClick={() => handleAppliedJobs(job_Info.id)} type="button" className="w-full my-2 py-2 px-4 bg-purple-400 rounded text-white hover:text-purple-700 hover:bg-purple-100">Apply Now</button>
           </div>
         </div>
       </div>
