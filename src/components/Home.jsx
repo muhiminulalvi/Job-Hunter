@@ -40,9 +40,7 @@ const Home = () => {
         <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
       </div>
       <JobDetails />
-      <div className="text-center">
-      <button type="button" className="btn-primary text-center">See All Jobs</button>
-      </div>
+      
     </div>
   );
 };
