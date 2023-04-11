@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const JobDetails = () => {
   const [jobs, setJobs] = useState([]);
@@ -6,10 +7,10 @@ const JobDetails = () => {
 
   const handleSeeAll = () => {
     setSeeAll(true);
-}
+  };
 
   useEffect(() => {
-    fetch("jobCollection.json")
+    fetch("/jobCollection.json")
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, []);
@@ -39,21 +40,24 @@ const JobDetails = () => {
               <p>{job.location}</p>
               <p>Salary: {job.salary}</p>
             </div>
-            <button
-              type="button"
-              className="rounded border border-purple-500 py-2 px-4 text-white bg-purple-600 hover:text-purple-700 hover:bg-white"
-            >
-              View Details
-            </button>
+            <Link to='job/id'>
+              <button
+                type="button"
+                className="rounded border border-purple-500 py-2 px-4 text-white bg-purple-600 hover:text-purple-700 hover:bg-white"
+              >
+                View Details
+              </button>
+            </Link>
           </div>
         ))}
       </div>
-      {
-        !seeAll && (
-            <p className="text-center"><button onClick={handleSeeAll} className='btn-primary'>See All Jobs</button></p>
-        )
-      }
-      
+      {!seeAll && (
+        <p className="text-center">
+          <button onClick={handleSeeAll} className="btn-primary">
+            See All Jobs
+          </button>
+        </p>
+      )}
     </>
   );
 };

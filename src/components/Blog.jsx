@@ -14,14 +14,14 @@ const Blog = () => {
             <strong>Question: </strong>When should you use context API?
           </p>
           <p>
-            <strong>Answer: </strong>Context API is used to interact with
-            unique data and provides assistance with prop-drilling across all
-            levels of your react application. It usually applies when several
-            components with different nesting levels need access to the same
-            data. The Context API is worthwhile to use if the project is short
-            or if we concentrate on encapsulating modules. There's no need to
-            pass data to the children at every level. It is incredibly reusable
-            and simple to maintain.
+            <strong>Answer: </strong>Context API is used to interact with unique
+            data and provides assistance with prop-drilling across all levels of
+            your react application. It usually applies when several components
+            with different nesting levels need access to the same data. The
+            Context API is worthwhile to use if the project is short or if we
+            concentrate on encapsulating modules. There's no need to pass data
+            to the children at every level. It is incredibly reusable and simple
+            to maintain.
           </p>
         </div>
         <div className="py-4 px-7 border-2 shadow-lg border-purple-500 my-3">

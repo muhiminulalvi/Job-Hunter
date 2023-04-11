@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Header from "./components/Header";
 import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import Statistics from "./components/Statistics";
 import Jobs from "./components/Jobs";
 import Blog from "./components/Blog";
+import JobInfo from "./components/JobInfo";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +19,13 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home />,
-            loader: () => fetch('category.json'),
+            loader: () => fetch('/category.json'),
         },
+        {
+            path: 'job/:id',
+            element: <JobInfo />,
+            
+          },
         {
             path: '/statistics',
             element: <Statistics />,
