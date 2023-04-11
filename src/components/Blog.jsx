@@ -15,7 +15,7 @@ const Blog = () => {
           </p>
           <p>
             <strong>Answer: </strong>Context API is used to interact with
-            unique data and provides assistance with prop-drilling across all
+            unique data and provides assistance with prop-drilling across all
             levels of your react application. It usually applies when several
             components with different nesting levels need access to the same
             data. The Context API is worthwhile to use if the project is short
