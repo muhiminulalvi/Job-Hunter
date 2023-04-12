@@ -54,7 +54,7 @@ const Header = () => {
           </li>
           <div>
             <button className="rounded bg-purple-500 px-4 py-3 text-white font-bold">
-              <Link to="/blog" aria-label="Blog" title="Blog">
+              <Link to="/" aria-label="Blog" title="Blog">
                 Start Applying
               </Link>
             </button>
@@ -148,7 +148,7 @@ const Header = () => {
                     </li>
                     <li>
                       <button className="rounded bg-purple-500 px-4 py-3 text-white font-bold">
-                        <Link to="/blog" aria-label="Blog" title="Blog">
+                        <Link to="/" aria-label="Blog" title="Blog">
                           Start Applying
                         </Link>
                       </button>

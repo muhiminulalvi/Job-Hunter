@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Category from "./Category/Category";
-import Jobs from "./Jobs";
 import JobDetails from "./JobDetails/JobDetails";
 
 const Home = () => {
@@ -18,7 +17,7 @@ const Home = () => {
             need. Its your future. Come find it. Manage all your job application
             from start to finish.
           </p>
-          <Link to="/blog">
+          <Link to="/">
             <button className="btn-primary">Get Started</button>
           </Link>
         </div>
@@ -35,7 +34,7 @@ const Home = () => {
         <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
       </div>
       <Category />
-      <div className="text-center pt-20 pb-8 font-bold">
+      <div className="text-center pt-20 pb-8 font-bold" id="featured_jobs">
         <h1 className="text-4xl mb-3 text-purple-600">Featured Jobs</h1>
         <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
       </div>
