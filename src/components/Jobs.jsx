@@ -1,10 +1,28 @@
-import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import SingleJobData from "./SingleJobData";
 
 const Jobs = () => {
   const { initialData } = useLoaderData();
 
+  const [filter, setFilter] = useState("all");
+
+  const filteredJobs = initialData.filter((job) => {
+ if (filter == "all"){
+    return true;
+ }
+    else if (filter == "Remote") {
+      return job.job_type == "Remote";
+    } else if (filter == "Onsite") {
+      return job.job_type == "Onsite";
+    }
+  });
+
+
+
+  const handleRemoteJobsClick = () => setFilter("Remote");
+  const handleOnSiteJobsClick = () => setFilter("Onsite");
+  console.log(filteredJobs);
   return (
     <>
       <div className="bg-purple-100 py-20">
@@ -12,22 +30,74 @@ const Jobs = () => {
       </div>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="text-end py-7">
-          <button type="button" className="btn-primary" >
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={handleRemoteJobsClick}
+          >
             Remote
           </button>
-          <button type="button" className="btn-primary" >
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={handleOnSiteJobsClick}
+          >
             Onsite
           </button>
         </div>
         <div className="grid grid-cols-1 py-6">
           <h3 className="text-xl font-semibold">
-            {initialData.length ? "You have applied in the following jobs: " : "Not Yet Applied"}
+            {initialData.length
+              ? "You have applied in the following jobs: "
+              : "Not Yet Applied"}
           </h3>
-          <ul className="flex flex-col ">
-            {initialData.map((singleData) => (
-              <SingleJobData singleData={singleData} key={singleData.id} />
-            ))}
-          </ul>
+          <div>
+            {filteredJobs &&
+              filteredJobs.map((job) => (
+                <div className="flex flex-col py-6 sm:flex-row sm:justify-between shadow my-3 px-5" key={job.id}>
+                  <div className="grid grid-cols-1 md:flex w-full space-x-2 sm:space-x-4 items-center">
+                    <img
+                      className="md:flex-none py-8 px-7 w-35 h-35 bg-gray-100"
+                      src={job.company_logo}
+                      alt="Logo"
+                    />
+
+                    <div className="grow">
+                      <h1 className="font-bold text-2xl">{job.job_title}</h1>
+                      <p className="font-medium text-gray-400">
+                        {job.company_name}
+                      </p>
+                      <div className="flex items-center gap-3 py-3">
+                        <button
+                          type="button"
+                          className="py-4 px-5 border border-purple-500 hover:bg-purple-700 hover:text-white font-bold rounded"
+                        >
+                          {job.job_type}
+                        </button>
+                        <button
+                          type="button"
+                          className="py-4 px-5 border border-purple-500 hover:bg-purple-700 hover:text-white font-bold rounded"
+                        >
+                          {job.time}
+                        </button>
+                      </div>
+                      <div className="flex items-center gap-4 text-gray-400">
+                        <span>{job.location}</span>
+                        <span>Salary: {job.salary}</span>
+                      </div>
+                    </div>
+                    <p className="text-right md:flex-none">
+                      <Link to={`../job/${job.id}`}>
+                        <button type="button" className="btn-primary">
+                          View Details
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+          
         </div>
       </div>
     </>
