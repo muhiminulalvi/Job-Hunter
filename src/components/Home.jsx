@@ -23,7 +23,7 @@ const Home = () => {
         </div>
         <div className="text-center">
           <img
-            src="public\All Images\P3OLGJ1 copy 1.png"
+            src="\All Images\P3OLGJ1 copy 1.png"
             alt=""
             className="text-center"
           />
